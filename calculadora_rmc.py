@@ -107,7 +107,7 @@ def funcao_segundo_grau():
             elif a < 0:
                 print(f"Xv = {xv}, Yv = {yv}, sendo valor máximo")
         elif escolhaF == 4:
-            x = np.linspace(-10, 10, 400)
+            x = np.linspace(-300, 60, 400)
             y = a * x**2 + b * x + c            
             plt.plot(x, y, label = f" {a}x^2 + {b}x + {c}")
             plt.title(f"Função do segundo grau: {a}x^2 + {b}x + {c}")
@@ -208,7 +208,7 @@ def matrizes():
         for i in range(num_linhas):
             linhas = []
             for j in range(num_colunas):
-                elementos = int(input(f"Informe o elemento da posição A{i+1},{j+1}: "))
+                elementos = int(input(f"Informe o elemento da posição A{i},{j}: "))
                 linhas.append(elementos)
             matriz.append(linhas)
         print("A matriz é:")
@@ -238,23 +238,43 @@ def matrizes():
             for i2 in range(num_linhas2):
                 linhas2 = []
                 for j2 in range(num_colunas2):
-                    elementos2 = int(input(f"Informe o elemento da posição A{i2+1},{j2+1}: "))
+                    elementos2 = int(input(f"Informe o elemento da posição A{i2},{j2}: "))
                     linhas2.append(elementos2) 
                 matriz2.append(linhas2)       
             if num_linhas != num_colunas2:
                 print("Não é possíver fazer a multiplicação de matrizes")
             elif  num_linhas == num_colunas2:
                 print("É possíver fazer a multiplicação de matrizes\n\n")
-                #nao sei como multiplicar matrizes
+                
+                matriz_resultado = []
+                
+                for i in range(num_linhas):
+                    linha_resultado = []
+                    for j in range(num_colunas2):
+                        linha_resultado.append(0)
+                    matriz_resultado.append(linha_resultado)
+
+                for i in range(num_linhas):
+                    for j in range(num_colunas2):
+                        for k in range(num_colunas):
+                            matriz_resultado[i][j] += matriz[i][k] * matriz2[k][j]
+
+                print("Produto das matrizes AxB:")
+                for linha in matriz_resultado:
+                    print(linha)
+                
         elif escolhaMA == 3:
             matriz_transposta = []
 
+            for l in range(len(matriz[0])):
+                matriz_transposta.append([0] * len(matriz))
+
             for i in range(len(matriz)):
-                for j in range(len(matriz[0])):
+                for j in range(len(matriz[i])):
                     matriz_transposta[j][i] = matriz[i][j]
             print("matriz transposta: ")
             for linha in matriz_transposta:
-                print(linha)#nao sei deixar um na frente do outro
+                print(linha)
 
 def menu():
     while True:
