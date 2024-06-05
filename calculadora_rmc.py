@@ -1,7 +1,6 @@
 import cmath
 import numpy as np
 import matplotlib.pyplot as plt
-import math
 
 a = 0
 b = 0
@@ -9,8 +8,8 @@ c = 0
 x = 0
 x1 = 0
 x2 = 0
-conjuntoA = []
-conjuntoB = []
+conjuntoA = set()
+conjuntoB = set()
 
 def conjunto_numerico():
     itensA = int(input("Quantos elementos tem no conjunto A? ")) 
@@ -18,11 +17,12 @@ def conjunto_numerico():
     
     for c in range(0,itensA):
             conjA = int(input("\nDigite o número do conjunto A: "))
-            conjuntoA.append(conjA)
+            conjuntoA.add(conjA)
     for i in range(0,itensB):
         conjB = int(input("\nDigite o número do conjunto B: "))
-        conjuntoB.append(conjB)
-
+        conjuntoB.add(conjB)
+    print(f"O conjunto A é: {conjuntoA}")
+    print(f"O conjunto B é: {conjuntoB}")
     while True:
         print("\nEscolha a opção que deseja fazer: \n\n[1] Verificar se A é subconjunto próprio de B\n[2] Realizar operação de União\n[3] Calcular intersecção\n[4] Calcular diferença\n[5] Recomeçar(Menu principal)")
         escolhaC = int(input("\nDigite a opção que deseja utilizar: "))
@@ -32,13 +32,13 @@ def conjunto_numerico():
             continue
         elif escolhaC == 5:
             for y in range(0,len(conjuntoA)):
-                conjuntoA.pop()
+                conjuntoA.clear()
             for z in range(0, len(conjuntoB)):
-                conjuntoB.pop()   
+                conjuntoB.clear()   
             print("Você voltou ao menu principal!\n\n")
             break
         elif escolhaC == 1:
-            if conjuntoA < conjuntoB and conjuntoA != conjuntoB:
+            if conjuntoA.issubset(conjuntoB) and conjuntoB != conjuntoA:
                 print("A é subconjunto próprio de B")
             else:
                 print("A não é subconjunto próprio de B")
