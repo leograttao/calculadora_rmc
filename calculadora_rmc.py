@@ -31,10 +31,11 @@ def conjunto_numerico():
             print("Você digitou opção inexistente, escolha outra opção!")
             continue
         elif escolhaC == 5:
-            for y in range(0,len(conjuntoA)):
-                conjuntoA.clear()
-            for z in range(0, len(conjuntoB)):
-                conjuntoB.clear()   
+            
+            conjuntoA.clear()
+
+            conjuntoB.clear()   
+            
             print("Você voltou ao menu principal!\n\n")
             break
         elif escolhaC == 1:
@@ -87,7 +88,7 @@ def funcao_segundo_grau():
                 x1 = (-b + cmath.sqrt(delta)) / (2*a)
                 x2 = (-b - cmath.sqrt(delta)) / (2*a)
                 raizes = (x1, x2)
-                print(f"A raíz da função é: {raizes}")#nao entendi o que é para fazer nas complexas, perguntar
+                print(f"A raíz da função é: {raizes}")
             elif delta == 0:
                 x1 = -b / (2*a)
                 raizes = (x1)
@@ -187,16 +188,13 @@ def matrizes():
             num_linhas2 = 0
             elementos = 0
             determinante = 0
-            for y in range(0,len(matriz)):
-                matriz.pop()
-            for z in range(0, len(linhas)):
-                linhas.pop() 
-            for x in range(0,len(matriz2)):
-                matriz2.pop()
-            for z in range(0, len(linhas2)):
-                linhas2.pop() 
-            for y in range(0,len(matriz_transposta)):
-                matriz_transposta.pop() 
+
+            matriz.clear()
+            linhas.clear() 
+            matriz2.clear()
+            linhas2.clear() 
+            matriz_transposta.clear() 
+
             print("Você voltou ao menu principal!")
             break
 
@@ -218,7 +216,7 @@ def matrizes():
         if escolhaMA == 1:
             if num_linhas == 2 and num_colunas == 2:
                 determinante = matriz[0][0] * matriz[1][1] - matriz[0][1] * matriz[1][0]
-                print(f"A determinante da Matriz é: {determinante}")
+                print(f"A determinante 2x2 da Matriz é: {determinante}")
             elif num_linhas == 3 and num_colunas == 3:
                 determinante = (matriz[0][0] * matriz[1][1] * matriz[2][2] +
                         matriz[0][1] * matriz[1][2] * matriz[2][0] +
@@ -226,7 +224,7 @@ def matrizes():
                         matriz[0][2] * matriz[1][1] * matriz[2][0] -
                         matriz[0][1] * matriz[1][0] * matriz[2][2] -
                         matriz[0][0] * matriz[1][2] * matriz[2][1])
-                print(f"A determinante da Matriz é: {determinante}")
+                print(f"A determinante 3x3 da Matriz é: {determinante}")
             else:
                 print("A matriz não é 2x2 ou 3x3")
         elif escolhaMA == 2:
