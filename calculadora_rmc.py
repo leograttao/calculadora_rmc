@@ -11,6 +11,24 @@ x2 = 0
 conjuntoA = set()
 conjuntoB = set()
 
+def subconjunto_proprio(conjuntoA,conjuntoB):
+    if conjuntoA.issubset(conjuntoB) and conjuntoB != conjuntoA:
+        print("A é subconjunto próprio de B")
+    else:
+        print("A não é subconjunto próprio de B")
+
+def uniao(conjuntoA,conjuntoB):
+    j = conjuntoA | conjuntoB
+    print(f"A união de A e B é: {j}")
+
+def intersecçao(conjuntoA,conjuntoB):
+    d = conjuntoA & conjuntoB
+    print(f"A intersecção de A e B é: {d}")
+
+def diferenca(conjuntoA,conjuntoB):
+    e = conjuntoB - conjuntoA
+    print(f"A diferença de A e B é: {e}")
+
 def conjunto_numerico():
     itensA = int(input("Quantos elementos tem no conjunto A? ")) 
     itensB = int(input("Quantos elementos tem no conjunto B? "))
@@ -39,19 +57,13 @@ def conjunto_numerico():
             print("Você voltou ao menu principal!\n\n")
             break
         elif escolhaC == 1:
-            if conjuntoA.issubset(conjuntoB) and conjuntoB != conjuntoA:
-                print("A é subconjunto próprio de B")
-            else:
-                print("A não é subconjunto próprio de B")
+            subconjunto_proprio(conjuntoA,conjuntoB)
         elif escolhaC == 2:    
-            j = conjuntoA | conjuntoB
-            print(f"A união de A e B é: {j}")
+            uniao(conjuntoA,conjuntoB)
         elif escolhaC == 3:
-            d = conjuntoA & conjuntoB
-            print(f"A intersecção de A e B é: {d}")
+            intersecçao(conjuntoA,conjuntoB)
         elif escolhaC == 4:
-            e = conjuntoB - conjuntoA
-            print(f"A diferença de A e B é: {e}")
+            diferenca(conjuntoA,conjuntoB)
 
 def funcao_segundo_grau():
 
